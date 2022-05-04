@@ -1,3 +1,4 @@
+import { useCallback, useMemo, useRef } from "react";
 import useCotizador from "../hooks/useCotizador";
 import { MARCAS, PLANES } from "../constants";
 
@@ -5,11 +6,17 @@ const Resultado = () => {
   const { resultado, datos } = useCotizador();
   const { marca, plan, year } = datos;
 
-  const nombreMarca = MARCAS.find(
-    (marcaTipo) => marcaTipo.id === Number(marca)
+  const yearRef = useRef(year);
+
+  const nombreMarca = useCallback(
+    MARCAS.find((marcaTipo) => marcaTipo.id === Number(marca)),
+    [resultado]
   );
 
-  const nombrePlan = PLANES.find((planTipo) => planTipo.id === Number(plan));
+  const nombrePlan = useCallback(
+    PLANES.find((planTipo) => planTipo.id === Number(plan)),
+    [resultado]
+  );
 
   if (resultado === 0) return null;
   return (
@@ -25,7 +32,7 @@ const Resultado = () => {
       </p>
       <p className="my-2">
         <span className="font-bold ">Año del Auto: </span>
-        {year}
+        {yearRef.current}
       </p>
       <p className="my-2 text-2xl">
         <span className="font-bold ">Total Cotización: </span>
