@@ -4,8 +4,14 @@ import { MARCAS, YEARS, PLANES } from "../constants";
 import useCotizador from "../hooks/useCotizador";
 
 const Formulario = () => {
-  const { datos, handleChangeDatos, error, setError, cotizarSeguro } =
-    useCotizador();
+  const {
+    datos,
+    handleChangeDatos,
+    error,
+    setError,
+    cotizarSeguro,
+    setMostrarModal,
+  } = useCotizador();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -61,8 +67,14 @@ const Formulario = () => {
           </select>
         </div>
         <div className="my-5">
-          <label className="block mb-3 font-bold text-gray-400 uppercase">
+          <label className="flex flex-1 mb-3 font-bold text-gray-400 uppercase">
             Elige un Plan
+            <a className="text-black" onClick={() => setMostrarModal(true)}>
+              <img
+                src="https://img.icons8.com/fluency/48/000000/info.png"
+                className="w-5 h-5 ml-2 cursor-pointer"
+              />
+            </a>
           </label>
           <div className="flex gap-3 items-center">
             {PLANES.map((plan) => (

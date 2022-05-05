@@ -17,6 +17,7 @@ const CotizadorProvider = ({ children }) => {
   const [error, setError] = useState("");
   const [resultado, setResultado] = useState(0);
   const [cargando, setCargando] = useState(false);
+  const [mostrarModal, setMostrarModal] = useState(false);
 
   const handleChangeDatos = (e) => {
     setDatos({ ...datos, [e.target.name]: e.target.value });
@@ -53,6 +54,8 @@ const CotizadorProvider = ({ children }) => {
         cotizarSeguro,
         resultado,
         cargando,
+        mostrarModal,
+        setMostrarModal,
       }}
     >
       {children}
