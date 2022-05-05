@@ -1,7 +1,9 @@
 const Modal = () => {
   return (
     <div className="w-full h-full absolute left-0 top-0 bg-opacity-25 shadow-md backdrop-blur-sm rounded-lg border-white z-10 p-10">
-      <h2 className="flex justify-center font-bold">Planes</h2>
+      <h2 className="text-center font-bold">Planes</h2>
+
+      <p className="absolute top-4 right-4 cursor-pointer">X</p>
       <div className="grid grid-cols-2 gap-2 mt-4 justify-items-center">
         <div className="bg-white w-5/6 rounded-lg shadow-md p-3 h-80 flex flex-col justify-between">
           <h3 className="font-bold text-center">Plan Basico</h3>
