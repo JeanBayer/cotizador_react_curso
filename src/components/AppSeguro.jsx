@@ -3,6 +3,7 @@ import Spinner from "./Spinner";
 import Resultado from "./Resultado";
 import useCotizador from "../hooks/useCotizador";
 import Modal from "./Modal";
+import { Fragment } from "react";
 
 const AppSeguro = () => {
   const { cargando, mostrarModal } = useCotizador();
@@ -13,7 +14,7 @@ const AppSeguro = () => {
           Cotizador de seguros de auto
         </h1>
       </header>
-      <main className="bg-white md:w-2/3 lg:w-2/4 mx-auto shadow rounded-lg p-10 relative">
+      <main className="bg-white relative md:w-2/3 lg:w-2/4 mx-auto shadow rounded-lg p-10 ">
         <Formulario />
         {cargando ? <Spinner /> : <Resultado />}
         {mostrarModal && <Modal />}

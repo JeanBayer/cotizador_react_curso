@@ -1,5 +1,7 @@
 import { useState } from "react";
 import useCotizador from "../hooks/useCotizador";
+import CardInformacion from "./CardInformacion";
+import { planBasico, planCompleto } from "../constants/index";
 
 const Modal = () => {
   const [show, setShow] = useState(false);
@@ -24,30 +26,13 @@ const Modal = () => {
         className="absolute top-4 right-4 cursor-pointer w-6 h-6"
         onClick={handleClose}
       />
-      <div className="grid grid-cols-2 gap-2 mt-4 justify-items-center ">
-        <div className="bg-white w-5/6 rounded-lg shadow-md p-3 h-80 flex flex-col justify-between">
-          <h3 className="font-bold text-center">Plan Basico</h3>
-          <ul>
-            <li className="text-black">Es mas barato</li>
-            <li className="text-black">Es mas barato</li>
-            <li className="text-black">Es mas barato</li>
-            <li className="text-black">Es mas barato</li>
-            <li className="text-black">Es mas barato</li>
-          </ul>
-        </div>
-        <div className="bg-white w-3/4 rounded-lg shadow-md p-3 h-80 flex flex-col justify-between">
-          <h3 className="font-bold text-center">Plan Completo</h3>
-          <ul>
-            <li className="text-black">Es mas caro</li>
-            <li className="text-black">Es mas caro</li>
-            <li className="text-black">Es mas caro</li>
-            <li className="text-black">Es mas caro</li>
-            <li className="text-black">Es mas caro</li>
-          </ul>
-          <button className="w-full bg-indigo-500  hover:bg-indigo-600  transition-colors text-white cursor-pointer p-2 uppercase font-bold">
-            Contratar
-          </button>
-        </div>
+      <div className="grid md:grid-cols-2 gap-2 mt-4 justify-items-center ">
+        <CardInformacion lista={planBasico} titulo="Plan Basico" cantidad={3} />
+        <CardInformacion
+          lista={planCompleto}
+          titulo="Plan Completo"
+          cantidad={5}
+        />
       </div>
     </div>
   );
