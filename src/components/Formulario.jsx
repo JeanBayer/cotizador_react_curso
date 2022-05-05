@@ -21,7 +21,7 @@ const Formulario = () => {
   };
 
   return (
-    <>
+    <Fragment>
       {error && <Error />}
       <form onSubmit={handleSubmit}>
         <div className="my-5">
@@ -84,7 +84,7 @@ const Formulario = () => {
           value="Cotizar"
         />
       </form>
-    </>
+    </Fragment>
   );
 };
 
